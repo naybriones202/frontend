@@ -4,7 +4,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import Swal from 'sweetalert2';
 
 // API apuntando a /api
-const API = 'https://backend-r6e8.onrender.com/';
+const API = 'https://backend-r6e8.onrender.com';
 console.log("🔗 Conectando a:", API);
 
 document.addEventListener("DOMContentLoaded", () => {
