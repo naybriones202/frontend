@@ -34,10 +34,7 @@
     .nav-link { cursor: pointer; color: #333; transition: 0.2s; }
     .nav-link:hover { background: #e9ecef; color: #0d6efd; }
     .nav-link.active { background: #0d6efd; color: white !important; }
-    
-    /* Estilo para los links de cambiar formulario */
     .auth-link { cursor: pointer; text-decoration: none; font-weight: bold; }
-    .auth-link:hover { text-decoration: underline; }
   </style>
 </head>
 
@@ -45,141 +42,143 @@
 
   <div id="login-section" class="vh-100 d-flex align-items-center justify-content-center bg-login">
     <div class="card shadow p-4" style="width: 380px;">
-      
-      <h4 class="text-center mb-1" id="titulo-auth">Acceso al Sistema</h4>
+      <h4 class="text-center mb-1">Acceso al Sistema</h4>
       <p class="text-center text-muted small mb-4">Proyecto Final 2026</p>
       
       <form id="form-login" class="fade-in">
         <div class="mb-3">
-          <label for="login-cedula" class="form-label small fw-bold">Cédula</label>
-          <input id="login-cedula" type="text" class="form-control" placeholder="Ingrese su cédula" required autocomplete="username">
+          <label class="form-label small fw-bold">Cédula</label>
+          <input id="login-cedula" type="text" class="form-control" required>
         </div>
         <div class="mb-3">
-          <label for="login-clave" class="form-label small fw-bold">Contraseña</label>
-          <input id="login-clave" type="password" class="form-control" placeholder="••••••••" required autocomplete="current-password">
+          <label class="form-label small fw-bold">Contraseña</label>
+          <input id="login-clave" type="password" class="form-control" required>
         </div>
-        <button type="submit" class="btn btn-primary w-100 py-2">
-          <i class="bi bi-box-arrow-in-right me-2"></i>Ingresar
-        </button>
-        
+        <button type="submit" class="btn btn-primary w-100">Ingresar</button>
         <div class="text-center mt-3">
-          <small>¿No tienes cuenta? <span id="link-ir-registro" class="auth-link text-primary">Regístrate aquí</span></small>
+          <small>¿No tienes cuenta? <span id="link-ir-registro" class="auth-link text-primary">Regístrate</span></small>
         </div>
       </form>
 
       <form id="form-registro" class="oculto fade-in">
         <div class="mb-3">
-          <label for="reg-cedula" class="form-label small fw-bold">Cédula</label>
-          <input id="reg-cedula" type="text" class="form-control" placeholder="Ej: 1312345678" required>
+          <label class="form-label small fw-bold">Cédula</label>
+          <input id="reg-cedula" type="text" class="form-control" required>
         </div>
         <div class="mb-3">
-          <label for="reg-nombre" class="form-label small fw-bold">Nombre Completo</label>
-          <input id="reg-nombre" type="text" class="form-control" placeholder="Ej: Juan Pérez" required>
+          <label class="form-label small fw-bold">Nombre Completo</label>
+          <input id="reg-nombre" type="text" class="form-control" required>
         </div>
         <div class="mb-3">
-          <label for="reg-clave" class="form-label small fw-bold">Contraseña</label>
-          <input id="reg-clave" type="password" class="form-control" placeholder="Crea una contraseña" required>
+          <label class="form-label small fw-bold">Contraseña</label>
+          <input id="reg-clave" type="password" class="form-control" required>
         </div>
-        <button type="submit" class="btn btn-success w-100 py-2">
-          <i class="bi bi-person-plus-fill me-2"></i>Crear Cuenta
-        </button>
-
+        <button type="submit" class="btn btn-success w-100">Crear Cuenta</button>
         <div class="text-center mt-3">
           <small>¿Ya tienes cuenta? <span id="link-ir-login" class="auth-link text-primary">Inicia sesión</span></small>
         </div>
       </form>
-
     </div>
   </div>
 
   <div id="dashboard-section" class="oculto d-flex">
-    
     <nav class="sidebar p-3 d-flex flex-column">
-      <h5 class="mb-4 text-primary fw-bold text-center mt-2">DASHBOARD</h5>
+      <h5 class="mb-4 text-primary fw-bold text-center mt-2">SISTEMA 2026</h5>
       <ul class="nav flex-column mb-auto">
-        <li class="nav-item mb-2">
-          <a class="nav-link p-2 rounded" onclick="mostrarPanel('usuarios')">
-            <i class="bi bi-people-fill me-2"></i> Usuarios
-          </a>
-        </li>
-        <li class="nav-item mb-2">
-          <a class="nav-link p-2 rounded" onclick="mostrarPanel('materias')">
-            <i class="bi bi-book-half me-2"></i> Materias
-          </a>
-        </li>
-        <li class="nav-item mb-2">
-          <a class="nav-link p-2 rounded" onclick="mostrarPanel('estudiantes')">
-            <i class="bi bi-mortarboard-fill me-2"></i> Estudiantes
-          </a>
-        </li>
-        <li class="nav-item mb-2">
-          <a class="nav-link p-2 rounded" onclick="mostrarPanel('notas')">
-            <i class="bi bi-journal-check me-2"></i> Notas
-          </a>
-        </li>
+        <li class="nav-item mb-2"><a class="nav-link p-2 rounded" onclick="mostrarPanel('usuarios')"><i class="bi bi-people-fill me-2"></i> Usuarios</a></li>
+        <li class="nav-item mb-2"><a class="nav-link p-2 rounded" onclick="mostrarPanel('materias')"><i class="bi bi-book-half me-2"></i> Materias</a></li>
+        <li class="nav-item mb-2"><a class="nav-link p-2 rounded" onclick="mostrarPanel('estudiantes')"><i class="bi bi-mortarboard-fill me-2"></i> Estudiantes</a></li>
+        <li class="nav-item mb-2"><a class="nav-link p-2 rounded" onclick="mostrarPanel('notas')"><i class="bi bi-journal-check me-2"></i> Notas</a></li>
       </ul>
       <hr>
       <div class="px-2 mb-3">
-        <small class="text-muted d-block">Usuario actual:</small>
-        <span id="usuario-logueado" class="fw-bold text-dark truncate">Cargando...</span>
+        <small class="text-muted d-block">Usuario:</small>
+        <span id="usuario-logueado" class="fw-bold text-dark">...</span>
       </div>
-      <button id="btn-logout" class="btn btn-outline-danger btn-sm w-100">
-        <i class="bi bi-power me-2"></i>Cerrar sesión
-      </button>
+      <button id="btn-logout" class="btn btn-outline-danger btn-sm w-100">Cerrar sesión</button>
     </nav>
 
     <main class="flex-grow-1 p-4 bg-light">
-      <div class="mb-4 d-flex justify-content-between align-items-center">
-        <div>
-          <h2 id="titulo-seccion" class="fw-bold mb-0">Panel de Control</h2>
-          <small class="text-muted">Gestión Académica v1.0</small>
-        </div>
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 id="titulo-seccion" class="fw-bold">Panel</h2>
+        <div id="zona-botones-crear">
+            </div>
       </div>
 
       <div id="panel-usuarios" class="table-container fade-in">
-        <h5><i class="bi bi-people me-2"></i>Lista de Usuarios</h5>
-        <table class="table table-hover align-middle mt-3">
-          <thead class="table-dark">
-            <tr><th>ID</th><th>Cédula</th><th>Nombre Completo</th><th class="text-center">Acciones</th></tr>
-          </thead>
+        <table class="table table-hover align-middle">
+          <thead class="table-dark"><tr><th>ID</th><th>Cédula</th><th>Nombre</th><th class="text-center">Acciones</th></tr></thead>
           <tbody id="tabla-usuarios-body"></tbody>
         </table>
       </div>
 
       <div id="panel-materias" class="table-container oculto fade-in">
-        <h5><i class="bi bi-book me-2"></i>Lista de Materias</h5>
-        <table class="table table-hover align-middle mt-3">
-          <thead class="table-primary">
-            <tr><th>ID</th><th>Código</th><th>Nombre de Materia</th></tr>
-          </thead>
+        <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#modalMateria"><i class="bi bi-plus"></i> Nueva Materia</button>
+        <table class="table table-hover align-middle">
+          <thead class="table-primary"><tr><th>ID</th><th>Código</th><th>Materia</th><th class="text-center">Acciones</th></tr></thead>
           <tbody id="tabla-materias-body"></tbody>
         </table>
       </div>
 
       <div id="panel-estudiantes" class="table-container oculto fade-in">
-        <h5><i class="bi bi-mortarboard me-2"></i>Directorio de Estudiantes</h5>
-        <table class="table table-hover align-middle mt-3">
-          <thead class="table-success">
-            <tr><th>ID</th><th>Cédula</th><th>Nombre Completo</th></tr>
-          </thead>
+        <button class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#modalEstudiante"><i class="bi bi-plus"></i> Nuevo Estudiante</button>
+        <table class="table table-hover align-middle">
+          <thead class="table-success"><tr><th>ID</th><th>Cédula</th><th>Nombre</th><th class="text-center">Acciones</th></tr></thead>
           <tbody id="tabla-estudiantes-body"></tbody>
         </table>
       </div>
 
       <div id="panel-notas" class="table-container oculto fade-in">
-        <h5><i class="bi bi-journal-check me-2"></i>Registro de Calificaciones</h5>
-        <table class="table table-hover align-middle mt-3">
-          <thead class="table-warning">
-            <tr><th>ID</th><th>Estudiante</th><th>Materia</th><th>Nota</th></tr>
-          </thead>
+        <button class="btn btn-warning mb-3" data-bs-toggle="modal" data-bs-target="#modalNota" onclick="window.prepararFormNota()"><i class="bi bi-plus"></i> Registrar Nota</button>
+        <table class="table table-hover align-middle">
+          <thead class="table-warning"><tr><th>ID</th><th>Estudiante</th><th>Materia</th><th>Nota</th><th class="text-center">Acciones</th></tr></thead>
           <tbody id="tabla-notas-body"></tbody>
         </table>
       </div>
     </main>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script type="module" src="/src/main.js"></script>
+  <div class="modal fade" id="modalMateria" tabindex="-1">
+    <div class="modal-dialog">
+      <form id="form-materia" class="modal-content">
+        <div class="modal-header"><h5>Nueva Materia</h5></div>
+        <div class="modal-body">
+          <input type="text" id="mat-codigo" class="form-control mb-2" placeholder="Código" required>
+          <input type="text" id="mat-nombre" class="form-control" placeholder="Nombre Materia" required>
+        </div>
+        <div class="modal-footer"><button type="submit" class="btn btn-primary">Guardar</button></div>
+      </form>
+    </div>
+  </div>
 
+  <div class="modal fade" id="modalEstudiante" tabindex="-1">
+    <div class="modal-dialog">
+      <form id="form-estudiante" class="modal-content">
+        <div class="modal-header"><h5>Nuevo Estudiante</h5></div>
+        <div class="modal-body">
+          <input type="text" id="est-cedula" class="form-control mb-2" placeholder="Cédula" required>
+          <input type="text" id="est-nombre" class="form-control" placeholder="Nombre Completo" required>
+        </div>
+        <div class="modal-footer"><button type="submit" class="btn btn-success">Guardar</button></div>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal fade" id="modalNota" tabindex="-1">
+    <div class="modal-dialog">
+      <form id="form-nota" class="modal-content">
+        <div class="modal-header"><h5>Registrar Calificación</h5></div>
+        <div class="modal-body">
+          <select id="nota-estudiante" class="form-select mb-2" required></select>
+          <select id="nota-materia" class="form-select mb-2" required></select>
+          <input type="number" id="nota-valor" class="form-control" placeholder="Nota (0-10)" step="0.1" required>
+        </div>
+        <div class="modal-footer"><button type="submit" class="btn btn-warning">Guardar</button></div>
+      </form>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
 </body>
 </html>
+
