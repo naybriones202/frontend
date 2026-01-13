@@ -34,6 +34,10 @@
     .nav-link { cursor: pointer; color: #333; transition: 0.2s; }
     .nav-link:hover { background: #e9ecef; color: #0d6efd; }
     .nav-link.active { background: #0d6efd; color: white !important; }
+    
+    /* Estilo para los links de cambiar formulario */
+    .auth-link { cursor: pointer; text-decoration: none; font-weight: bold; }
+    .auth-link:hover { text-decoration: underline; }
   </style>
 </head>
 
@@ -41,13 +45,14 @@
 
   <div id="login-section" class="vh-100 d-flex align-items-center justify-content-center bg-login">
     <div class="card shadow p-4" style="width: 380px;">
-      <h4 class="text-center mb-1">Acceso al Sistema</h4>
+      
+      <h4 class="text-center mb-1" id="titulo-auth">Acceso al Sistema</h4>
       <p class="text-center text-muted small mb-4">Proyecto Final 2026</p>
       
-      <form id="form-login">
+      <form id="form-login" class="fade-in">
         <div class="mb-3">
           <label for="login-cedula" class="form-label small fw-bold">Cédula</label>
-          <input id="login-cedula" type="text" class="form-control" placeholder="Ingrese su número de cédula" required autocomplete="username">
+          <input id="login-cedula" type="text" class="form-control" placeholder="Ingrese su cédula" required autocomplete="username">
         </div>
         <div class="mb-3">
           <label for="login-clave" class="form-label small fw-bold">Contraseña</label>
@@ -56,7 +61,34 @@
         <button type="submit" class="btn btn-primary w-100 py-2">
           <i class="bi bi-box-arrow-in-right me-2"></i>Ingresar
         </button>
+        
+        <div class="text-center mt-3">
+          <small>¿No tienes cuenta? <span id="link-ir-registro" class="auth-link text-primary">Regístrate aquí</span></small>
+        </div>
       </form>
+
+      <form id="form-registro" class="oculto fade-in">
+        <div class="mb-3">
+          <label for="reg-cedula" class="form-label small fw-bold">Cédula</label>
+          <input id="reg-cedula" type="text" class="form-control" placeholder="Ej: 1312345678" required>
+        </div>
+        <div class="mb-3">
+          <label for="reg-nombre" class="form-label small fw-bold">Nombre Completo</label>
+          <input id="reg-nombre" type="text" class="form-control" placeholder="Ej: Juan Pérez" required>
+        </div>
+        <div class="mb-3">
+          <label for="reg-clave" class="form-label small fw-bold">Contraseña</label>
+          <input id="reg-clave" type="password" class="form-control" placeholder="Crea una contraseña" required>
+        </div>
+        <button type="submit" class="btn btn-success w-100 py-2">
+          <i class="bi bi-person-plus-fill me-2"></i>Crear Cuenta
+        </button>
+
+        <div class="text-center mt-3">
+          <small>¿Ya tienes cuenta? <span id="link-ir-login" class="auth-link text-primary">Inicia sesión</span></small>
+        </div>
+      </form>
+
     </div>
   </div>
 
